@@ -82,6 +82,7 @@ def runner(pretrained = False):
                                             device=DEVICE)
         
         plot_loss_curves(pretrained_vit_results)
+        print()
 
         # Save the model
         utils.save_model(model=pretrained_vit,
@@ -97,7 +98,7 @@ def runner(pretrained = False):
             request = requests.get("https://www.boss-pizza.co.uk/site/assets/images/uploads/2_3_5c232a9d83be_o.jpg")
             print(f"Downloading...")
             f.write(request.content)
-
+        print("Sample Data...")
         # Predict on custom image
         utils.pred_and_plot_image(model=pretrained_vit,
                             image_path="download.jpeg",
