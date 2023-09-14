@@ -4,7 +4,7 @@ from torch import nn
 from torchvision import transforms
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-BATCH_SIZE = 1024
+BATCH_SIZE = 32
 IMAGE_PATH = "./pizza_steak_sushi"
 TRAIN_DIR = IMAGE_PATH + "/train"
 TEST_DIR = IMAGE_PATH + "/test"
