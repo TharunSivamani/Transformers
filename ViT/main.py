@@ -92,15 +92,3 @@ def runner(pretrained = False):
         # Get the model size in bytes then convert to megabytes
         pretrained_vit_model_size = Path("models/08_pretrained_vit_feature_extractor_pizza_steak_sushi.pth").stat().st_size // (1024*1024) # division converts bytes to megabytes (roughly) 
         print(f"Pretrained ViT feature extractor model size: {pretrained_vit_model_size} MB")
-
-        with open("download.jpeg", "wb") as f:
-        # When downloading from GitHub, need to use the "raw" file link
-            request = requests.get("https://www.boss-pizza.co.uk/site/assets/images/uploads/2_3_5c232a9d83be_o.jpg")
-            print(f"Downloading...")
-            f.write(request.content)
-        print("Sample Data...")
-        # Predict on custom image
-        utils.pred_and_plot_image(model=pretrained_vit,
-                            image_path="download.jpeg",
-                            transform=transforms.Resize((IMG_SIZE, IMG_SIZE)),
-                            class_names=class_names)
